@@ -2,9 +2,24 @@ import CustomInput from "./UI/input/CustomInput";
 import CustomButton from "./UI/button/CustomButton";
 import {useState} from "react";
 
-const PostForm = () => {
+const PostForm = ( {create} ) => {
     const [title, setTitle] = useState('')
     const [body, setBody] = useState('')
+
+    const addNewPost = (e) => {
+        e.preventDefault()
+
+        const newPost = {
+            id: Date.now(),
+            title,
+            body
+        }
+
+        create(newPost)
+
+        setTitle('')
+        setBody('')
+    }
 
     return (
         <form>

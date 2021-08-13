@@ -1,15 +1,18 @@
+import CustomButton from "./UI/button/CustomButton";
 
-const PostItem = ( {post : {title, body}, number} ) => {
+const PostItem = ( {post, number, remove} ) => {
     return (
         <div className="post">
             <div className="post__content">
-                <strong>{number}. {title}</strong>
+                <strong>{number}. {post.title}</strong>
                 <div>
-                    {body}
+                    {post.body}
                 </div>
             </div>
             <div className="post__btns">
-                <button>delete</button>
+                <CustomButton onClick={() => remove(post)}>
+                    delete
+                </CustomButton>
             </div>
         </div>
     );
