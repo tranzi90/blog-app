@@ -8,8 +8,8 @@ const CustomModal = ({children, visible, setVisible}) => {
         rootClasses.push(style.active)
 
     return (
-        <div className={rootClasses.join(' ')}>
-            <div className={style.modalContent}>
+        <div className={rootClasses.join(' ')} onClick={() => setVisible(false)}>
+            <div className={style.modalContent} onClick={(e) => e.stopPropagation()}>
                 {children}
             </div>
         </div>
